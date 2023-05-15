@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "619149469522",
+    "firebase_url": "https://toystore-eea1c-default-rtdb.firebaseio.com",
+    "project_id": "toystore-eea1c",
+    "storage_bucket": "toystore-eea1c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619149469522:android:e79c54ea8faa10edbafc8b",
+        "android_client_info": {
+          "package_name": "com.example.toystore"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619149469522-1l56igg40u743h8cubb3cs83iqgdmrk7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUX5Dhao1TVaFa27peiJ9voBD8nHkgI0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619149469522-1l56igg40u743h8cubb3cs83iqgdmrk7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
