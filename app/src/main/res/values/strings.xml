@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ToyStore</string>
+    <string name="title_activity_atualizar">Atualizar</string>
 </resources>

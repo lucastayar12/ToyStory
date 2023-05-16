@@ -67,6 +67,7 @@
         android:layout_weight="1"
         android:backgroundTint="#FFC107"
         android:gravity="center"
+        android:onClick="atualizarBrinquedo"
         app:icon="@android:drawable/ic_menu_edit"
         app:iconGravity="textStart"
         app:iconPadding="5dp"

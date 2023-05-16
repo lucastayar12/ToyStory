@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toystore.model.Brinquedo
 import com.example.toystore.model.BrinquedoAdapter
+import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -15,6 +16,7 @@ import com.google.gson.Gson
 class DAO_Brinquedo(context: Context)
 {
     var banco : DatabaseReference
+    var listaBrinquedos = ArrayList<Brinquedo>()
     var context : Context
     init {
         this.banco  = Firebase.database.reference
@@ -30,7 +32,6 @@ class DAO_Brinquedo(context: Context)
         banco.addValueEventListener(object : ValueEventListener
         {
             override fun onDataChange(snapshot: DataSnapshot) {
-                var listaBrinquedos = ArrayList<Brinquedo>()
                 if (snapshot.exists())
                 {
                     val gson = Gson()
@@ -46,6 +47,8 @@ class DAO_Brinquedo(context: Context)
             override fun onCancelled(error: DatabaseError) {}
         })
     }
+
+    fun retornaListaBrinquedo() : ArrayList<Brinquedo>{ return listaBrinquedos }
 
     fun atualizarBrinquedo(brinquedo: Brinquedo)
     {

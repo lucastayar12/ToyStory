@@ -16,8 +16,10 @@
         android:theme="@style/Theme.ToyStore"
         tools:targetApi="31">
         <activity
-            android:name=".Atualizar"
-            android:exported="false">
+            android:name=".telas.Atualizar"
+            android:exported="false"
+            android:label="@string/title_activity_atualizar"
+            android:theme="@style/Theme.ToyStore">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
