@@ -12,6 +12,7 @@ class BrinquedoAdapter(private val brinquedos : List<Brinquedo> ,val context: Co
 {
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
     {
+        val codigoBrinquedo : TextView = itemView.findViewById(R.id.tv_Codigo)
         val modeloBrinquedo : TextView = itemView.findViewById(R.id.tv_Modelo)
         val idadeBrinquedo : TextView = itemView.findViewById(R.id.tv_Idade)
         val pesoBrinquedo : TextView = itemView.findViewById(R.id.tv_Peso)
@@ -34,6 +35,9 @@ class BrinquedoAdapter(private val brinquedos : List<Brinquedo> ,val context: Co
         holder.volumeBrinquedo.text = "Volume: " + item.volume.toString()
         holder.custoBrinquedo.text = "Custo: R$ " + item.custo.toString()
 
+        holder.itemView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int

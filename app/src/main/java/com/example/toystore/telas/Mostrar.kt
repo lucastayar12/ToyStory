@@ -27,10 +27,12 @@ class Mostrar : AppCompatActivity()
 
         daoBrinquedo = DAO_Brinquedo(this)
         daoBrinquedo.lerBrinquedos(rv_Brinquedos)
-
     }
-
-    fun atualizarBrinquedo(View: View) { startActivity(Intent(this, Atualizar::class.java)) }
+    //to_do Parcelable na Classe Brinquedo.
+    fun atualizarBrinquedo(View: View, brinquedo: Brinquedo)
+    {
+        startActivity(Intent(this, Atualizar::class.java))
+    }
 
     fun voltarInicio(View : View){ this.finish()}
 }

@@ -4,7 +4,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -22,22 +24,30 @@ class Atualizar : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+                    MainContent()
                 }
             }
         }
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun MainContent() {
+    Scaffold(
+        topBar = { Text(text = "Atualizar Brinquedo") }
+    ) {
+
+    }
+}
+@Composable
+fun BodyContent(){
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     ToyStoreTheme {
-        Greeting("Android")
+        MainContent()
     }
 }
