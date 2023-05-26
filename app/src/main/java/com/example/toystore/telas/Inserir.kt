@@ -8,6 +8,7 @@ import android.widget.Toast
 import com.example.toystore.R
 import com.example.toystore.model.Brinquedo
 import com.example.toystore.repository.DAO_Brinquedo
+import com.example.toystore.repository.IndexSingleton
 
 class Inserir : AppCompatActivity()
 {
@@ -16,7 +17,6 @@ class Inserir : AppCompatActivity()
     lateinit var et_Peso : EditText
     lateinit var et_Volume : EditText
     lateinit var et_Custo : EditText
-    var index = 0
     lateinit var daoBrinquedo : DAO_Brinquedo
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,8 +32,8 @@ class Inserir : AppCompatActivity()
 
     fun inserirBrinquedo(View: View)
     {
-        index++
-        val toy = Brinquedo( index, et_Modelo.text.toString(), et_Idade.text.toString().toInt(), et_Peso.text.toString().toFloat(), et_Volume.text.toString().toFloat(), et_Custo.text.toString().toFloat())
+        IndexSingleton.incrementIndex()
+        val toy = Brinquedo(IndexSingleton.index , et_Modelo.text.toString(), et_Idade.text.toString().toInt(), et_Peso.text.toString().toFloat(), et_Volume.text.toString().toFloat(), et_Custo.text.toString().toFloat())
         Toast.makeText(this,"$toy", Toast.LENGTH_LONG).show()
         daoBrinquedo.criarBrinquedo(toy)
     }

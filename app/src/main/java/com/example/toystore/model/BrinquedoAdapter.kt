@@ -1,17 +1,21 @@
 package com.example.toystore.model
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.example.toystore.R
 import androidx.recyclerview.widget.RecyclerView
 
-class BrinquedoAdapter(private val brinquedos : List<Brinquedo> ,val context: Context) : RecyclerView.Adapter<BrinquedoAdapter.ViewHolder>()
+class BrinquedoAdapter(private val brinquedos : List<Brinquedo> ,val context: Context, val intent: Intent) : RecyclerView.Adapter<BrinquedoAdapter.ViewHolder>()
 {
     class ViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView)
     {
+        val btnAtualizar : Button = itemView.findViewById(R.id.btnAtualizar)
         val codigoBrinquedo : TextView = itemView.findViewById(R.id.tv_Codigo)
         val modeloBrinquedo : TextView = itemView.findViewById(R.id.tv_Modelo)
         val idadeBrinquedo : TextView = itemView.findViewById(R.id.tv_Idade)
@@ -29,14 +33,15 @@ class BrinquedoAdapter(private val brinquedos : List<Brinquedo> ,val context: Co
     override fun onBindViewHolder(holder: ViewHolder, position: Int)
     {
         val item = brinquedos[position]
+        holder.codigoBrinquedo.text = item.codigo.toString()
         holder.modeloBrinquedo.text = "Modelo: " + item.modelo
         holder.idadeBrinquedo.text = "Idade: " + item.idade.toString()
         holder.pesoBrinquedo.text = "Peso: " + item.peso.toString()
         holder.volumeBrinquedo.text = "Volume: " + item.volume.toString()
         holder.custoBrinquedo.text = "Custo: R$ " + item.custo.toString()
 
-        holder.itemView.setOnClickListener {
-
+        holder.btnAtualizar.setOnClickListener{
+            context.startActivity(intent.putExtra("brinquedo", brinquedos[position]))
         }
     }
 

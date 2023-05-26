@@ -1,13 +1,17 @@
 package com.example.toystore.repository
 
 import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import com.example.toystore.model.Brinquedo
 import com.example.toystore.model.BrinquedoAdapter
+import com.example.toystore.telas.Atualizar
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.MutableData
+import com.google.firebase.database.Transaction
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.*
 import com.google.firebase.ktx.Firebase
@@ -22,6 +26,7 @@ class DAO_Brinquedo(context: Context)
         this.banco  = Firebase.database.reference
         this.context = context
     }
+
     fun criarBrinquedo(brinquedo: Brinquedo)
     {
         this.banco.child(brinquedo.codigo.toString()).setValue(brinquedo)
@@ -64,7 +69,6 @@ class DAO_Brinquedo(context: Context)
 
     fun insereBrinquedosRecyclerView(recyclerView: RecyclerView, listaBrinquedo: ArrayList<Brinquedo>)
     {
-        recyclerView.adapter = BrinquedoAdapter(listaBrinquedo, this.context)
+        recyclerView.adapter = BrinquedoAdapter(listaBrinquedo, this.context, Intent(this.context, Atualizar::class.java))
     }
-
 }
